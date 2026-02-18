@@ -1,0 +1,81 @@
+/* 1. Reset e Cores Globais (Padrão Dark Mode Gringa) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif; /* Fonte limpa e moderna */
+}
+
+body {
+    background-color: #0f172a; /* Azul marinho profundo */
+    color: #f8fafc;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.container {
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+}
+
+/* 2. Estilizando a Busca (Search Box) */
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin: 30px 0;
+}
+
+input {
+    flex: 1; /* Faz o input ocupar todo o espaço disponível */
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: 1px solid #334155;
+    background: #1e293b;
+    color: white;
+    outline: none;
+}
+
+button {
+    padding: 12px 25px;
+    background-color: #38bdf8; /* Azul brilhante */
+    border: none;
+    border-radius: 8px;
+    color: #0f172a;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #7dd3fc;
+    transform: scale(1.05);
+}
+
+/* 3. O Card do Filme (Onde a mágica acontece) */
+.movie-info {
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(10px); /* Efeito de vidro */
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column; /* No celular fica um abaixo do outro */
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+    animation: fadeIn 0.5s ease; /* Animação suave ao aparecer */
+}
+
+.movie-info img {
+    width: 200px;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+/* Animação para o card não aparecer "seco" */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
