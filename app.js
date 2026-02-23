@@ -1,6 +1,6 @@
-// 1. CONFIGURAÇÕES (Sempre no topo para evitar o erro de "not defined")
-const apiKey = '8b61b9a4'; 
-const baseUrl = 'https://www.omdbapi.com/';
+
+
+import { apiKey, baseUrl } from "./config.js";
 
 // 2. SELEÇÃO DE ELEMENTOS (Pegando os "atores" do HTML)
 const searchBtn = document.getElementById('search-btn');
