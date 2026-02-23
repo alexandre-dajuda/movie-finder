@@ -1,118 +1,156 @@
-/* === 1. RESET & BASE STYLES === */
+/* ==========================================================================
+   GLOBAL STYLES & VARIABLES
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 body {
-    background-color: #0f172a; /* Dark Navy */
+    background-color: #0f172a; /* Dark Navy Background */
     color: #f8fafc;
-    min-height: 100vh; /* Ocupa no mínimo a altura da tela */
+    min-height: 100vh;
     display: flex;
-    flex-direction: column; /* Organiza Container e Footer em coluna */
+    flex-direction: column;
     align-items: center;
-    padding-top: 40px;
+    padding: 40px 20px;
 }
 
+/* ==========================================================================
+   LAYOUT COMPONENTS
+   ========================================================================== */
 .container {
-    width: 90%;
-    max-width: 600px;
-    flex: 1; /* Faz o container crescer e empurrar o footer para baixo */
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
 }
 
 header h1 {
     font-size: 2.5rem;
     margin-bottom: 10px;
+    color: #38bdf8; /* Sky Blue accent */
 }
 
 header p {
     color: #94a3b8;
+    margin-bottom: 30px;
 }
 
-/* === 2. SEARCH INTERFACE === */
+/* Search Section Styling */
 .search-box {
     display: flex;
-    gap: 12px;
-    margin: 40px 0;
+    gap: 10px;
+    margin-bottom: 40px;
 }
 
 input {
     flex: 1;
-    padding: 14px 20px;
-    border-radius: 10px;
-    border: 1px solid #334155;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: 1px solid #1e293b;
     background: #1e293b;
     color: white;
-    font-size: 1rem;
     outline: none;
-    transition: border 0.3s;
-}
-
-input:focus {
-    border-color: #38bdf8;
 }
 
 button {
-    padding: 14px 28px;
+    padding: 12px 25px;
+    border-radius: 8px;
+    border: none;
     background-color: #38bdf8;
     color: #0f172a;
-    border: none;
-    border-radius: 10px;
     font-weight: 700;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: 0.3s ease;
 }
 
 button:hover {
-    background-color: #7dd3fc;
+    background-color: #0ea5e9;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
 }
 
-/* === 3. MOVIE CARD (DYNAMIC CONTENT) === */
+/* ==========================================================================
+   MOVIE CARD (RESULT AREA)
+   ========================================================================== */
 .movie-info {
     background: rgba(30, 41, 59, 0.5);
-    backdrop-filter: blur(12px);
-    padding: 30px;
-    border-radius: 20px;
+    padding: 25px;
+    border-radius: 16px;
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
     border: 1px solid rgba(255, 255, 255, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    animation: fadeIn 0.6s ease-out;
+    margin-bottom: 40px;
+    animation: fadeIn 0.5s ease-in;
 }
 
 .movie-info img {
-    width: 220px;
-    border-radius: 12px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+    max-width: 200px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
 }
 
-.movie-info h2 {
-    color: #38bdf8;
-    text-align: center;
+/* ==========================================================================
+   ANIMATIONS & UTILITIES
+   ========================================================================== */
+
+/* Loading Spinner Animation */
+.loader {
+    border: 4px solid #1e293b;
+    border-top: 4px solid #38bdf8;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
 }
 
-.movie-info p {
-    line-height: 1.6;
-    color: #cbd5e1;
-    text-align: center;
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
-/* === 4. FOOTER (THE STICKY FOOTER) === */
-.main-footer {
-    width: 100%;
-    padding: 30px 0;
-    text-align: center;
-    background: #0b1120; /* Um pouco mais escuro que o body */
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   FAVORITES SECTION (GRID LAYOUT)
+   ========================================================================== */
+.favorites-section {
     margin-top: 50px;
+    border-top: 2px solid rgba(255, 255, 255, 0.05);
+    padding-top: 30px;
 }
 
-.main-footer p {
+/* Responsive Grid for favorite movies */
+.fav-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 20px;
+}
+
+.fav-item {
+    background: #1e293b;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.fav-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+/* ==========================================================================
+   FOOTER STYLES
+   ========================================================================== */
+.main-footer {
+    margin-top: auto;
+    padding-top: 60px;
     color: #64748b;
     font-size: 0.9rem;
 }
@@ -120,29 +158,4 @@ button:hover {
 .main-footer span {
     color: #38bdf8;
     font-weight: 600;
-}
-
-.footer-links {
-    margin-top: 12px;
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-}
-
-.footer-links a {
-    color: #475569;
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 500;
-    transition: color 0.3s;
-}
-
-.footer-links a:hover {
-    color: #f8fafc;
-}
-
-/* === 5. ANIMATIONS === */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
 }

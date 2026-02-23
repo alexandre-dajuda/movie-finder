@@ -3,33 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Finder | Alexandre D'Ajuda</title>
+    <title>MovieFinder | Portfolio Project</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <div class="container">
         <header>
-            <h1>🎬 Movie Finder</h1>
-            <p>Search for any movie using OMDb API</p>
+            <h1>🎬 MovieFinder</h1>
+            <p>Explore the world of cinema and save your favorites</p>
         </header>
 
         <div class="search-box">
-            <input type="text" id="movie-input" placeholder="Type a movie title (e.g. Inception)...">
+            <input type="text" id="movie-input" placeholder="Enter movie title (ex: Batman)...">
             <button id="search-btn">Search</button>
         </div>
 
         <div id="result-container">
-            <p class="welcome-msg">Your movie results will appear here!</p>
-        </div>
+            </div>
+
+        <section class="favorites-section">
+            <h3>⭐ My Favorites</h3>
+            <div id="favorites-list" class="fav-grid">
+                </div>
+        </section>
     </div>
 
     <footer class="main-footer">
-    <p>&copy; 2026 | Built by <span>Alexandre D'Ajuda</span></p>
-    <div class="footer-links">
-        <a href="https://github.com/alexandre-dajuda" target="_blank">GitHub</a>
-        <a href="#">Portfolio</a>
-    </div>
+        <p>&copy; 2026 | Built with JS Modules by <span>Alexandre D'Ajuda</span></p>
+        <div class="footer-links">
+            <a href="https://github.com/alexandre-dajuda" target="_blank">GitHub</a>
+            <a href="#">Portfolio</a>
+        </div>
     </footer>
 
     <script type="module" src="app.js"></script>
